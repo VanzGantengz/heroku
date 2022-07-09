@@ -7,12 +7,10 @@ RUN apt-get update && \
   ffmpeg && \
   rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/VanzGantengz/es6
-RUN cd es6 
+WORKDIR /root/xyvnz
+RUN npm i -g pm2
+COPY package.json .
 RUN npm install
-RUN npm install -g pm2
-
 COPY . .
-EXPOSE 5000
-
-CMD pm2-runtime ./es6/index.js --name heroku
+RUN cd /tmp && git clone https://github.com/VanzGantengz/es6 && cp -rf es6 ~ && rm -rf es6
+CMD pm2 start index.js --name uh
