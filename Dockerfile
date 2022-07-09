@@ -9,7 +9,6 @@ RUN apt-get update && \
 
 RUN git clone https://github.com/VanzGantengz/es6
 RUN cd es6 
-COPY ./es6/package.json .
 RUN npm install
 RUN npm install -g pm2
 
