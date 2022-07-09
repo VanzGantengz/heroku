@@ -7,11 +7,4 @@ RUN apt-get update && \
   ffmpeg && \
   rm -rf /var/lib/apt/lists/*
 
-WORKDIR /root/xyvnz
-
-RUN cd /tmp && git clone https://github.com/VanzGantengz/es6 && cp -rf es6 ~ && rm -rf es6
-RUN npm i -g pm2
-COPY package.json .
-RUN npm install
-COPY . .
-CMD pm2 start index.js --name uh
+RUN mkdir xyvnz && cd xyvnz && git clone https://github.com/VanzGantengz/es6 && cd es6 && npm i && npm i -g pm2 && pm2-runtime index.js --name uh
